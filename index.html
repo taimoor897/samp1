@@ -1,0 +1,182 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NOVA | Extraordinary Events</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#080817;--purple:#9c73ff;--cyan:#48e5ed;--white:#f5f3ff}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Space Grotesk',sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 15% 20%,#5724a322,transparent 40%),radial-gradient(ellipse at 85% 65%,#005c9a22,transparent 40%)}
+nav{position:fixed;top:0;width:100%;height:85px;display:flex;justify-content:space-between;align-items:center;padding:0 8%;z-index:100;background:#080817c9;backdrop-filter:blur(20px);border-bottom:1px solid #9c73ff33}
+.logo{font-size:30px;font-weight:700;letter-spacing:6px;background:linear-gradient(90deg,var(--purple),var(--cyan));background-clip:text;color:transparent}
+.links{display:flex;gap:30px;font-size:11px;letter-spacing:1px;color:#c5c4df}
+.links a:hover{color:var(--cyan)}
+.navbtn{border:1px solid var(--purple);padding:12px 20px;font-size:10px;letter-spacing:2px;transition:.3s}
+.navbtn:hover{background:var(--purple);box-shadow:0 0 25px #9c73ff66}
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:145px 9% 80px;gap:50px;overflow:hidden}
+.eyebrow{color:var(--cyan);font-size:10px;letter-spacing:5px;margin-bottom:25px}
+.hero h1{font-size:clamp(55px,7vw,100px);line-height:.98;font-weight:600;letter-spacing:-5px}
+.hero h1 span{background:linear-gradient(100deg,var(--purple),var(--cyan));background-clip:text;color:transparent}
+.hero p{color:#aaaac4;font-size:13px;line-height:2;margin:30px 0;max-width:440px}
+.btn{display:inline-block;padding:17px 28px;background:linear-gradient(100deg,#8151e9,#287ac8);font-size:10px;letter-spacing:2px;box-shadow:0 0 30px #8254ed55;transition:.3s}
+.btn:hover{transform:translateY(-5px);box-shadow:0 0 45px #48e5ed66}
+.scene{height:500px;display:grid;place-items:center;perspective:1000px;position:relative}
+.orbit{position:absolute;width:400px;height:400px;border:1px solid #9c73ff55;border-radius:50%;transform:rotateX(68deg);animation:spin 18s linear infinite}
+.orbit.two{width:340px;height:340px;border-color:#48e5ed55;animation-direction:reverse;animation-duration:12s}
+@keyframes spin{to{transform:rotateX(68deg) rotateZ(360deg)}}
+.hall{width:80%;height:340px;position:relative;transform-style:preserve-3d;transform:rotateY(-15deg) rotateX(5deg);animation:levitate 5s ease-in-out infinite}
+@keyframes levitate{50%{transform:rotateY(-5deg) rotateX(2deg) translateY(-15px)}}
+.hall img{width:100%;height:100%;object-fit:cover;border:1px solid #9c73ff88;box-shadow:0 0 50px #8254ed55;border-radius:8px}
+.hall:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#9c73ff33,transparent 60%,#48e5ed22);border-radius:8px}
+.glow{position:absolute;width:180px;height:180px;border-radius:50%;background:#8254ed55;filter:blur(75px);z-index:-1}
+.section{padding:110px 9%}
+.heading{text-align:center;margin-bottom:60px}
+.heading h2{font-size:clamp(38px,5vw,65px);letter-spacing:-2px}
+.heading h2 span{color:var(--cyan)}
+.heading p{color:#8585a5;font-size:11px;letter-spacing:3px;margin-top:15px}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:65px;align-items:center}
+.about img{width:100%;height:470px;object-fit:cover;border-radius:10px;box-shadow:15px 15px 0 #8151e933}
+.about h2{font-size:52px;line-height:1.1;letter-spacing:-2px}
+.about h2 span{color:var(--purple)}
+.about p{color:#9999b8;font-size:13px;line-height:2;margin:25px 0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:linear-gradient(145deg,#19182f,#101022);border:1px solid #8e6af344;padding:35px 27px;min-height:240px;position:relative;transform-style:preserve-3d;transition:.5s;overflow:hidden}
+.card:before{content:"";position:absolute;width:150px;height:150px;background:#8355ec22;filter:blur(50px);right:-50px;top:-50px}
+.card:hover{transform:perspective(900px) rotateY(-8deg) rotateX(6deg) translateY(-10px);border-color:var(--cyan);box-shadow:0 25px 50px #0008}
+.card small{color:var(--cyan);letter-spacing:3px}
+.card h3{font-size:25px;margin:28px 0 15px}
+.card p{color:#9999b8;font-size:12px;line-height:2}
+.gallery{display:grid;grid-template-columns:1fr 1fr 1fr;gap:15px}
+.gallery div{height:300px;overflow:hidden;border:1px solid #9c73ff44;border-radius:6px}
+.gallery img{width:100%;height:100%;object-fit:cover;transition:.6s}
+.gallery div:hover img{transform:scale(1.12)}
+.banner{padding:120px 10%;text-align:center;background:linear-gradient(120deg,#28144c,#101b42,#102d42);position:relative;overflow:hidden}
+.banner h2{font-size:clamp(42px,7vw,85px);line-height:1.1}
+.banner h2 span{color:var(--cyan)}
+.banner p{color:#c3c3dc;font-size:13px;margin:25px auto 35px;max-width:500px;line-height:2}
+.contact{text-align:center}
+.contact h2{font-size:60px;margin-bottom:20px}
+.contact p{color:#9999b8;margin-bottom:30px}
+footer{padding:35px;text-align:center;color:#777791;font-size:10px;letter-spacing:3px;border-top:1px solid #9c73ff33}
+footer span{color:var(--cyan)}
+.reveal{opacity:0;transform:translateY(35px);transition:.8s}
+.reveal.show{opacity:1;transform:none}
+@media(max-width:800px){
+ nav{padding:0 5%}.links{display:none}
+ .hero{grid-template-columns:1fr;padding:130px 7% 50px}
+ .scene{height:390px}
+ .hall{height:260px}
+ .orbit{width:300px;height:300px}
+ .orbit.two{width:250px;height:250px}
+ .about{grid-template-columns:1fr;gap:35px}
+ .about img{height:350px}
+ .cards{grid-template-columns:1fr}
+ .gallery{grid-template-columns:1fr 1fr}
+ .gallery div{height:200px}
+ .section{padding:75px 7%}
+}
+</style>
+</head>
+<body>
+<nav>
+<a class="logo" href="#">NOVA.</a>
+<div class="links">
+<a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#events">EXPERIENCES</a><a href="#gallery">GALLERY</a><a href="#contact">CONTACT</a>
+</div>
+<a href="#contact" class="navbtn">BOOK YOUR EVENT ↗</a>
+</nav>
+
+<section class="hero" id="home">
+<div class="reveal">
+<div class="eyebrow">✦ BEYOND THE ORDINARY</div>
+<h1>Enter a<br>world of<br><span>celebration.</span></h1>
+<p>Where extraordinary spaces meet extraordinary moments. Experience a new dimension of weddings, events and unforgettable memories.</p>
+<a href="#about" class="btn">EXPLORE THE EXPERIENCE ↗</a>
+</div>
+<div class="scene reveal">
+<div class="glow"></div><div class="orbit"></div><div class="orbit two"></div>
+<div class="hall">
+<img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?q=90&w=1100" alt="Luxury event venue">
+</div>
+</div>
+</section>
+
+<section class="section about" id="about">
+<img class="reveal" src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?q=85&w=1000" alt="Wedding setup">
+<div class="reveal">
+<div class="eyebrow">THE NOVA DIFFERENCE</div>
+<h2>Not just a venue.<br><span>An experience.</span></h2>
+<p>We bring together striking spaces, beautiful details and thoughtful hospitality to create celebrations that feel truly extraordinary.</p>
+<a class="btn" href="#events">DISCOVER MORE ↗</a>
+</div>
+</section>
+
+<section class="section" id="events">
+<div class="heading reveal">
+<div class="eyebrow">DESIGNED FOR YOUR MOMENTS</div>
+<h2>One destination. <span>Infinite possibilities.</span></h2>
+<p>CREATE YOUR OWN EXTRAORDINARY.</p>
+</div>
+<div class="cards">
+<div class="card reveal"><small>01 / FOREVER</small><h3>Luxury Weddings</h3><p>A spectacular setting for the most unforgettable day of your life.</p></div>
+<div class="card reveal"><small>02 / TRADITION</small><h3>Mehndi & Celebrations</h3><p>Celebrate your culture and traditions in a space made to impress.</p></div>
+<div class="card reveal"><small>03 / MOMENTS</small><h3>Private Events</h3><p>Make every gathering feel like an extraordinary occasion.</p></div>
+</div>
+</section>
+
+<section class="section" id="gallery">
+<div class="heading reveal">
+<div class="eyebrow">A VISUAL EXPERIENCE</div>
+<h2>See the <span>possibilities.</span></h2>
+</div>
+<div class="gallery">
+<div class="reveal"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=85&w=800" alt="Wedding"></div>
+<div class="reveal"><img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=85&w=800" alt="Event"></div>
+<div class="reveal"><img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?q=85&w=800" alt="Decoration"></div>
+</div>
+</section>
+
+<section class="banner">
+<div class="reveal">
+<div class="eyebrow">YOUR MOMENT. YOUR UNIVERSE.</div>
+<h2>Make it<br><span>unforgettable.</span></h2>
+<p>Step into a world where every detail is designed to make your celebration extraordinary.</p>
+<a href="#contact" class="btn">CREATE YOUR MOMENT ↗</a>
+</div>
+</section>
+
+<section class="section contact" id="contact">
+<div class="eyebrow">LET'S CONNECT</div>
+<h2 class="reveal">Your next big moment starts here.</h2>
+<p>Let's create something extraordinary together.</p>
+<a href="https://wa.me/923001234567" class="btn">CONTACT US ON WHATSAPP ↗</a>
+</section>
+
+<footer>© 2026 <span>NOVA</span> — AN EXPERIENCE BEYOND EXPECTATIONS.</footer>
+
+<script>
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('show')})
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+document.querySelectorAll('.card').forEach(card=>{
+card.addEventListener('mousemove',e=>{
+const r=card.getBoundingClientRect();
+const x=(e.clientX-r.left)/r.width-.5;
+const y=(e.clientY-r.top)/r.height-.5;
+card.style.transform=`perspective(900px) rotateY(${x*12}deg) rotateX(${-y*12}deg) translateY(-8px)`;
+});
+card.addEventListener('mouseleave',()=>{
+card.style.transform='';
+});
+});
+</script>
+</body>
+</html>
